@@ -165,3 +165,12 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
+
+.hidden{
+  display: none;
+}
+
+#startGame{
+  top: 26rem;
+  font-size: 2.4rem;
+}
