@@ -23,42 +23,35 @@ startBtn.classList.remove('hidden');
 points1.textContent = 0;
 points2.textContent = 0;
 currpoint1.textContent = 0;
-currpoint2.textContent =0;
+currpoint2.textContent = 0;
 play1.classList.add('player--active');
 play2.classList.remove('player--active');
 titlep1.textContent = "Player 1"
 titlep2.textContent = "Player 2"
-
+play1.classList.remove('player--winner');
+play2.classList.remove('player--winner');
 
 const startGame = function(){
 
+//play1.classList.remove('player--winner');
+//play2.classList.remove('player--winner');
 points1.textContent = 0;
 points2.textContent = 0;
 currpoint1.textContent = 0;
-currpoint2.textContent =0;
+currpoint2.textContent = 0;
 startBtn.classList.add('hidden');
 dice.classList.remove('hidden');
 
-const checkWin = function(){
-    if(currpoint1.textContent == 100){
-        points1.textContent = "WINNER"
-        points2.textContent = "LOSERR"
-    }
-    else{
-        points2.textContent = "WINNER"
-        points1.textContent = "LOSERR"
-    }
-}
 const changeActive = function(){
     if(play1.classList.contains('player--active') === true){
-     currpoint1.textContent = Number(currpoint1.textContent) + Number(points1.textContent);
+       currpoint1.textContent = Number(currpoint1.textContent) + Number(points1.textContent);
        points1.textContent = 0;
        play2.classList.add('player--active');
        play1.classList.remove('player--active');
        console.log("player 2 is active now")
     }
     else{
-     currpoint2.textContent = Number(currpoint2.textContent) + Number(points2.textContent);
+       currpoint2.textContent = Number(currpoint2.textContent) + Number(points2.textContent);
        points2.textContent = 0;
        play1.classList.add('player--active');
        play2.classList.remove('player--active');
@@ -84,9 +77,25 @@ diceRoll.addEventListener('click', function(){
     else{
         points2.textContent = Number(points2.textContent) + roll;
     }
+    checkWin();
     }
+    
 })
 
+const checkWin = function (){
+    console.log("this is running");
+if(Number(currpoint1.textContent) >= '100'){
+    points1.textContent = "WINNER";
+    points2.textContent = "LOSER";
+    play1.classList.add('player--winner');
+}
+else if(Number(currpoint2.textContent) >= 100){
+    points2.textContent = "WINNER";
+    points1.textContent = "LOSER";
+    play2.classList.add('player--winner');
+}
+
+}
 
 
 }
