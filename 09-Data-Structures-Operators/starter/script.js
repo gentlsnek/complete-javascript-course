@@ -30,6 +30,10 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderDelivery: function (obj){
+    console.log(obj);
+  }
 };
 
 
@@ -62,7 +66,7 @@ console.log(main,  secondary);/.
 
 
 */
-
+/*
 
 console.log(restaurant.order(2, 0));
 
@@ -70,4 +74,58 @@ console.log(restaurant.order(2, 0));
 const[startercourse, maincourse] = restaurant.order(2,1);
 
 
-console.log(startercourse, maincourse);cxz
+console.log(startercourse, maincourse);
+
+
+const {name, openingHours, categories} = restaurant;
+
+//console.log(name, openingHours, categories);
+
+const{name: restaurantName,openingHours: hours, categories: tags} = restaurant;
+
+console.log(restaurantName, hours, tags);
+
+
+const{menu = [], starters = []} = restaurant;
+
+console.log(menu, starters);
+
+//nested hours
+
+
+
+const {fri: {open : o, close : c}} = openingHours;
+
+console.log( o , c );
+
+const {thu} = openingHours;
+console.log(thu);
+console.log(restaurant.openingHours.fri);
+
+*/
+
+const arr =  [7, 8, 9];
+
+
+const newArr = [4, 5, ...arr];
+
+
+console.log(newArr);
+
+const newMenue = [ ...restaurant.mainMenu, 'gnocci'];
+
+console.log(newMenue);
+
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+console.log(menu);
+
+//iiterables are arrays strings maps sets but not objects;
+
+
+const str = 'erwin';
+
+const strA = [...str];
+console.log(strA);
+
